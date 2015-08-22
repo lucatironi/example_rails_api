@@ -15,6 +15,10 @@ require "action_view/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+CORS_ALLOW_ORIGIN  = "*"
+CORS_ALLOW_METHODS = %w{GET POST PUT DELETE OPTIONS}.join(',')
+CORS_ALLOW_HEADERS = %w{Content-Type Accept X-User-Email X-Auth-Token}.join(',')
+
 module ExampleApi
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -32,5 +36,11 @@ module ExampleApi
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_dispatch.default_headers = {
+      "Access-Control-Allow-Origin"  => CORS_ALLOW_ORIGIN,
+      "Access-Control-Allow-Methods" => CORS_ALLOW_METHODS,
+      "Access-Control-Allow-Headers" => CORS_ALLOW_HEADERS
+    }
   end
 end

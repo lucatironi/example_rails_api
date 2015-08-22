@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: 87c47f8fdcf38627e92f0b5496bc7831a02025e2
+  specs:
+    active_model_serializers (0.10.0.rc2)
+      activemodel (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -122,6 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   rails (= 4.2.3)
   rails-api
   rspec-rails (~> 3.0)

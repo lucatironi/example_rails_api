@@ -1,3 +1,5 @@
+User.create(email: "admin@example.com", password: "password")
+
 [
   { full_name: "John Doe",   email: "john.doe@example.com",   phone: "033 1234 5678"},
   { full_name: "Mark Smith", email: "mark.smith@example.com", phone: "034 6789 1234"},

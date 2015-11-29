@@ -31,7 +31,7 @@ class TokenIssuer
   end
 
   def expire_token(resource, request)
-    find_token(resource, request.headers["X-Auth-Token"]).try(:destroy)
+    find_token(resource, request.headers['X-Auth-Token']).try(:destroy)
   end
 
   def find_token(resource, token_from_headers)
@@ -49,6 +49,5 @@ class TokenIssuer
 
   private
 
-    attr_accessor :maximum_tokens_per_user
-
+  attr_accessor :maximum_tokens_per_user
 end

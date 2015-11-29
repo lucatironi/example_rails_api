@@ -1,13 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
+require 'rails'
 # Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
+require 'active_model/railtie'
+require 'active_job/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'action_view/railtie'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -15,9 +15,9 @@ require "action_view/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-CORS_ALLOW_ORIGIN  = "*"
-CORS_ALLOW_METHODS = %w{GET POST PUT DELETE OPTIONS}.join(',')
-CORS_ALLOW_HEADERS = %w{Content-Type Accept X-User-Email X-Auth-Token}.join(',')
+CORS_ALLOW_ORIGIN  = '*'
+CORS_ALLOW_METHODS = %w(GET POST PUT DELETE OPTIONS).join(',')
+CORS_ALLOW_HEADERS = %w(Content-Type Accept X-User-Email X-Auth-Token).join(',')
 
 module ExampleApi
   class Application < Rails::Application
@@ -38,9 +38,9 @@ module ExampleApi
     config.active_record.raise_in_transactional_callbacks = true
 
     config.action_dispatch.default_headers = {
-      "Access-Control-Allow-Origin"  => CORS_ALLOW_ORIGIN,
-      "Access-Control-Allow-Methods" => CORS_ALLOW_METHODS,
-      "Access-Control-Allow-Headers" => CORS_ALLOW_HEADERS
+      'Access-Control-Allow-Origin'  => CORS_ALLOW_ORIGIN,
+      'Access-Control-Allow-Methods' => CORS_ALLOW_METHODS,
+      'Access-Control-Allow-Headers' => CORS_ALLOW_HEADERS
     }
   end
 end

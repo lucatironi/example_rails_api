@@ -7,19 +7,18 @@ class SessionsController < ApplicationController
       token = TokenIssuer.create_and_return_token(user, request)
       render status: :ok, json: { user_email: user.email, auth_token: token }
     else
-      render status: :unauthorized, json: ""
+      render status: :unauthorized, json: ''
     end
   end
 
   def destroy
     TokenIssuer.expire_token(current_user, request) if current_user
-    render status: :ok, json: ""
+    render status: :ok, json: ''
   end
 
   private
 
-    def session_params
-      params.require(:user).permit(:email, :password)
-    end
-
+  def session_params
+    params.require(:user).permit(:email, :password)
+  end
 end

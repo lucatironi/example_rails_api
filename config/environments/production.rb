@@ -24,7 +24,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX

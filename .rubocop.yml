@@ -1,0 +1,14 @@
+Encoding:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+AllCops:
+  Exclude:
+    - db/**/*
+    - bin/rails
+    - bin/rake
+    - bin/rspec
+    - bin/spring
+    - spec/support/warden.rb

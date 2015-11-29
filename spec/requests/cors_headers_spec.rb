@@ -1,23 +1,26 @@
 require 'rails_helper'
 
-RSpec.describe 'CORS headers', type: :request do
-  describe 'OPTIONS /*' do
-    it 'returns the CORS headers' do
-      reset!
-      integration_session.__send__ :process, 'OPTIONS', '/test'
+RSpec.describe 'CORS', type: :request do
+  before { head '/something' }
 
-      expect(response).to have_http_status(204)
-      expect(response.body).to be_blank
+  it 'respond with 204 and CORS headers' do
+    expect(response.status).to eq(204)
+    expect(response.body).to be_blank
+  end
 
-      expect(response.headers['Access-Control-Allow-Origin']).to eq('*')
+  it 'returns the Access-Control-Allow-Origin header to allow CORS from anywhere' do
+    expect(response.headers['Access-Control-Allow-Origin']).to eq('*')
+  end
 
-      %w(GET POST PUT DELETE).each do |method|
-        expect(response.headers['Access-Control-Allow-Methods']).to include(method)
-      end
+  it 'returns general HTTP methods through CORS (GET/POST/PUT/DELETE)' do
+    %w(GET POST PUT DELETE).each do |method|
+      expect(response.headers['Access-Control-Allow-Methods']).to include(method)
+    end
+  end
 
-      %w(Content-Type Accept X-User-Email X-Auth-Token).each do |header|
-        expect(response.headers['Access-Control-Allow-Headers']).to include(header)
-      end
+  it 'returns the allowed headers' do
+    %w(Content-Type Accept X-User-Email X-Auth-Token).each do |header|
+      expect(response.headers['Access-Control-Allow-Headers']).to include(header)
     end
   end
 end

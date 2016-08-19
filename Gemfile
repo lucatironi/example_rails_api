@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
+gem 'rails', '~> 4'
 gem 'rails-api'
 gem 'sqlite3'
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'active_model_serializers'
 
 gem 'warden'
 gem 'bcrypt', '~> 3.1.7'
